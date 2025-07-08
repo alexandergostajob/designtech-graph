@@ -9,8 +9,26 @@ const CustomNode = ({ data, selected }) => {
   return (
     <>
       <NodeToolbar isVisible={selected} position={Position.Top}>
-        <div style={{ padding: '4px 8px', fontSize: 12, backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: 4 }}>
-          <strong>{data.type}</strong>{data.description ? `: ${data.description}` : ''}
+        <div style={{
+          padding: '4px 8px',
+          fontSize: 12,
+          backgroundColor: '#fff',
+          border: '1px solid #ccc',
+          borderRadius: 4
+        }}>
+          <div><strong>{data.type}</strong>{data.description ? `: ${data.description}` : ''}</div>
+          {data.website && (
+            <div><strong>Website: </strong>
+            <a
+              href={data.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#0077cc', textDecoration: 'underline' }}
+            >
+              {data.website}
+            </a>
+            </div>
+          )}
         </div>
       </NodeToolbar>
 
@@ -22,15 +40,35 @@ const CustomNode = ({ data, selected }) => {
           borderRadius: 6,
           textAlign: 'center',
           fontSize: `${10 + scale * 2}px`,
-          opacity: data.isDimmed ? 0.2 : 1,
-          transition: 'opacity 0.3s'
+          opacity: data.opacity ?? 1,
+          transition: 'opacity 0.3s',
+          hidden: false
         }}
       >
         {data.label}
       </div>
 
-      <Handle type="target" position={Position.Left} />
-      <Handle type="source" position={Position.Right} />
+      <Handle 
+      type="target" 
+      position={Position.Left}
+      style={{
+        width: 16,
+        height: 40,
+
+        background: 'transparent',
+        border: 'none',
+      }}
+      />
+      <Handle 
+      type="source" 
+      position={Position.Right} 
+      style={{
+        width: 16,
+        height: 40,
+        background: 'transparent',
+        border: 'none',
+      }}
+      />
     </>
   );
 };

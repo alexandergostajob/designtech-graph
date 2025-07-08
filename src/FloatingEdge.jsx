@@ -33,7 +33,7 @@ function FloatingEdge({ id, source, target, data }) {
       d={edgePath}
       style={
         {stroke: sourceColor,
-        opacity: data?.isDimmed ? 0.2 : 1,
+        opacity: data.opacity ?? 1,
         transition: 'opacity 0.3s ease',
         }
       }

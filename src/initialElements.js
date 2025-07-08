@@ -1,4 +1,4 @@
-import rawData from './ekosystem_plattformar.json';
+import rawData from './data.json';
 import { MarkerType} from '@xyflow/react';
 
 const colorMap = {
@@ -31,11 +31,11 @@ export function initialElements() {
       id: item.Name,
       type: 'custom',
       position: { x, y },
-      
       data: {
         label: item.Name,
         type: item.Type,
         description: item.Description,
+        website: item.Website,
         interoperability: item.Interoperability?.split(',').map(s => s.trim()) || [],
         color: colorMap[item.Type] || '#ccc'
       }

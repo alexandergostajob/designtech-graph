@@ -5,7 +5,7 @@ import {
   forceX,
   forceY,
 } from 'd3-force';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import {
   ReactFlow,
   ReactFlowProvider,
@@ -18,6 +18,7 @@ import {
   useEdgesState,
   useReactFlow,
   useNodesInitialized,
+  applyNodeChanges
 } from '@xyflow/react';
  
 import { collide } from './collide.js';
@@ -27,65 +28,62 @@ import { initialElements } from './initialElements.js';
 import CustomNode from './CustomNode';
 import ArrangeButton from './ArrangeButton';
 
-
 import '@xyflow/react/dist/style.css';
+import TypeFilterPanel from './TypeFilterPanel.jsx';
  
-const simulation = forceSimulation()
-  .force('charge', forceManyBody().strength(-1000))
-  .force('x', forceX().x(0).strength(0.05))
-  .force('y', forceY().y(0).strength(0.05))
-  .force('collide', collide())
-  .alphaTarget(0.05)
-  .stop();
+const width = window.innerWidth;
+const height = window.innerHeight;
 
 const useLayoutedElements = () => {
   const { getNodes, setNodes, getEdges, fitView } = useReactFlow();
   const initialized = useNodesInitialized();
- 
-  // You can use these events if you want the flow to remain interactive while
-  // the simulation is running. The simulation is typically responsible for setting
-  // the position of nodes, but if we have a reference to the node being dragged,
-  // we use that position instead.
+
+  const aspectRatio = width / height;
+  const aspectModifier = aspectRatio * 0.8;
+  const baseStrength = 0.075;
+  const xStrength = baseStrength * (1 / aspectModifier);
+  const yStrength = baseStrength * aspectModifier;
+
+  const simulation = forceSimulation()
+    .force('charge', forceManyBody().strength(-1200))
+    .force('x', forceX().x(0).strength(xStrength))
+    .force('y', forceY().y(0).strength(yStrength))
+    .force('collide', collide())
+    .alphaTarget(0.05)
+    .stop();
+
   const draggingNodeRef = useRef(null);
-  const dragEvents = useMemo(
-    () => ({
-      start: (_event, node) => (draggingNodeRef.current = node),
-      drag: (_event, node) => (draggingNodeRef.current = node),
-      stop: () => (draggingNodeRef.current = null),
-    }),
-    [],
-  );
- 
+  const runningRef = useRef(false); 
+
+  const dragEvents = useMemo(() => ({
+    start: (_event, node) => (draggingNodeRef.current = node),
+    drag: (_event, node) => (draggingNodeRef.current = node),
+    stop: () => (draggingNodeRef.current = null),
+  }), []);
+
   return useMemo(() => {
-    let nodes = getNodes().map((node) => ({
+    const nodes = getNodes().map((node) => ({
       ...node,
       x: node.position.x,
       y: node.position.y,
     }));
-    let edges = getEdges().map((edge) => edge);
-    let running = false;
- 
-    // If React Flow hasn't initialized our nodes with a width and height yet, or
-    // if there are no nodes in the flow, then we can't run the simulation!
+
+    const edges = getEdges();
+
     if (!initialized || nodes.length === 0) return [false, {}, dragEvents];
- 
+
     simulation.nodes(nodes).force(
       'link',
       forceLink(edges)
-        .id((d) => d.id)
+        .id(d => d.id)
         .strength(0.05)
-        .distance(100),
+        .distance(100)
     );
- 
-    // The tick function is called every animation frame while the simulation is
-    // running and progresses the simulation one step forward each time.
+
     const tick = () => {
       getNodes().forEach((node, i) => {
         const dragging = draggingNodeRef.current?.id === node.id;
- 
-        // Setting the fx/fy properties of a node tells the simulation to "fix"
-        // the node at that position and ignore any forces that would normally
-        // cause it to move.
+
         if (dragging) {
           nodes[i].fx = draggingNodeRef.current.position.x;
           nodes[i].fy = draggingNodeRef.current.position.y;
@@ -94,40 +92,50 @@ const useLayoutedElements = () => {
           delete nodes[i].fy;
         }
       });
- 
+
       simulation.tick();
-      setNodes(
-        nodes.map((node) => ({
-          ...node,
-          position: { x: node.fx ?? node.x, y: node.fy ?? node.y },
-        })),
-      );
- 
+
+      setNodes(prevNodes => {
+        const simMap = new Map(nodes.map(n => [n.id, n]));
+
+        const changes = prevNodes.map(node => {
+          const simNode = simMap.get(node.id);
+          if (!simNode) return null;
+
+          return {
+            id: node.id,
+            type: 'position',
+            position: {
+              x: simNode.fx ?? simNode.x,
+              y: simNode.fy ?? simNode.y,
+            }
+          };
+        }).filter(Boolean);
+
+        return applyNodeChanges(changes, prevNodes);
+      });
+
       window.requestAnimationFrame(() => {
-        // Give React and React Flow a chance to update and render the new node
-        // positions before we fit the viewport to the new layout.
         fitView();
- 
-        // If the simulation hasn't been stopped, schedule another tick.
-        if (running) tick();
+        if (runningRef.current) tick();
       });
     };
- 
+
     const toggle = () => {
-      if (!running) {
-        getNodes().forEach((node, index) => {
-          let simNode = nodes[index];
-          Object.assign(simNode, node);
-          simNode.x = node.position.x;
-          simNode.y = node.position.y;
+      if (!runningRef.current) {
+        getNodes().forEach((node, i) => {
+          Object.assign(nodes[i], node);
+          nodes[i].x = node.position.x;
+          nodes[i].y = node.position.y;
         });
       }
-      running = !running;
-      running && window.requestAnimationFrame(tick);
+
+      runningRef.current = !runningRef.current;
+      if (runningRef.current) window.requestAnimationFrame(tick);
     };
- 
-    const isRunning = () => running;
- 
+
+    const isRunning = () => runningRef.current;
+
     return [true, { toggle, isRunning }, dragEvents];
   }, [initialized, dragEvents, getNodes, getEdges, setNodes, fitView]);
 };
@@ -136,67 +144,170 @@ const edgeTypes = { floating: FloatingEdge };
 
 const { nodes: initialNodes, edges: initialEdges } = initialElements();
 
-
-
 const LayoutFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const highlightedNodes = new Set();
-  const highlightedEdges = new Set();
   const [selectedNodeId, setSelectedNodeId] = useState(null);
-  
+  const [interoperabilityOrder, setInteroperabilityOrder] = useState(1);
+
+  const allTypes = useMemo(() => {
+    const types = Array.from(new Set(nodes.map(n => n.data.type)));
+    return types.map(type => ({
+      type,
+      color: nodes.find(n => n.data.type === type)?.data.color || '#ccc',
+    }));
+  }, [nodes]);
+
+
+  const [activeTypes, setActiveTypes] = useState(new Set(allTypes.map(t => t.type)));
+
+  const toggleType = (type) => {
+      setActiveTypes(prev => {
+        const updated = new Set(prev);
+        if (updated.has(type)) {
+          updated.delete(type);
+        } else {
+          updated.add(type);
+        }
+        return updated;
+      });
+    };
+    
+    useEffect(() => {
+      setNodes((prevNodes) => {
+        const updatedNodes = prevNodes.map((node) => ({
+          ...node,
+          hidden: !activeTypes.has(node.data.type),
+        }));
+
+        const nodeTypeMap = new Map();
+        updatedNodes.forEach((n) => nodeTypeMap.set(n.id, n.data.type));
+
+        setEdges((prevEdges) =>
+          prevEdges.map((edge) => {
+            const sourceType = nodeTypeMap.get(edge.source);
+            const targetType = nodeTypeMap.get(edge.target);
+            const visible = activeTypes.has(sourceType) && activeTypes.has(targetType);
+            return {
+              ...edge,
+              hidden: !visible,
+            };
+          })
+        );
+
+        return updatedNodes;
+      });
+    }, [activeTypes]);
+
+
+  const firstOrderNodes = new Set();
+  const firstOrderEdges = new Set();
+  const secondOrderNodes = new Set();
+  const secondOrderEdges = new Set();
+
   if (selectedNodeId) {
-    edges.forEach(edge => {
+    // First-degree
+    edges.forEach((edge) => {
       if (edge.source === selectedNodeId || edge.target === selectedNodeId) {
-        highlightedEdges.add(edge.id);
-        highlightedNodes.add(edge.source);
-        highlightedNodes.add(edge.target);
+        firstOrderEdges.add(edge.id);
+        firstOrderNodes.add(edge.source);
+        firstOrderNodes.add(edge.target);
+      }
+    });
+
+    if (interoperabilityOrder === 2) {
+      // Second-degree
+      edges.forEach((edge) => {
+        const isConnectedToFirst = firstOrderNodes.has(edge.source) || firstOrderNodes.has(edge.target);
+        const isDirect = edge.source === selectedNodeId || edge.target === selectedNodeId;
+
+        if (isConnectedToFirst && !isDirect) {
+          secondOrderEdges.add(edge.id);
+          if (!firstOrderNodes.has(edge.source)) secondOrderNodes.add(edge.source);
+          if (!firstOrderNodes.has(edge.target)) secondOrderNodes.add(edge.target);
+        }
+      });
     }
-  });
-}
+  }
 
-const styledNodes = nodes.map(node => ({
-  ...node,
-  data: {
-    ...node.data,
-    isDimmed: selectedNodeId ? !highlightedNodes.has(node.id) : false,
-  },
-}));
+  const styledNodes = useMemo(() => {
+    return nodes.map((node) => {
+      let opacity = 1;
 
-const styledEdges = edges.map(edge => ({
-  ...edge,
-  data: {
-    ...edge.data,
-    isDimmed: selectedNodeId ? !highlightedEdges.has(edge.id) : false,
-  },
-}));
+      if (selectedNodeId) {
+        if (firstOrderNodes.has(node.id)) {
+          opacity = 1;
+        } else if (interoperabilityOrder === 2 && secondOrderNodes.has(node.id)) {
+          opacity = 0.5;
+        } else {
+          opacity = 0.1;
+        }
+      }
 
-  const onConnect = useCallback(
-    (params) =>
-      setEdges((eds) =>
-        addEdge(
-          {
-            ...params,
-            type: 'floating',
-          },
-          eds,
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          isDimmed: opacity < 1,
+          opacity,
+        },
+      };
+    });
+  }, [nodes, selectedNodeId, firstOrderNodes, secondOrderNodes, interoperabilityOrder]);
+
+  const styledEdges = useMemo(() => {
+    return edges.map((edge) => {
+      let opacity = 1;
+
+      if (selectedNodeId) {
+        if (firstOrderEdges.has(edge.id)) {
+          opacity = 1;
+        } else if (interoperabilityOrder === 2 && secondOrderEdges.has(edge.id)) {
+          opacity = 0.35;
+        } else {
+          opacity = 0.05;
+        }
+      }
+
+      return {
+        ...edge,
+        data: {
+          ...edge.data,
+          isDimmed: opacity < 1,
+          opacity,
+        },
+      };
+    });
+  }, [edges, selectedNodeId, firstOrderEdges, secondOrderEdges, interoperabilityOrder]);
+
+
+    const onConnect = useCallback(
+      (params) =>
+        setEdges((eds) =>
+          addEdge(
+            {
+              ...params,
+              type: 'floating',
+            },
+            eds,
+          ),
         ),
-      ),
-    [setEdges],
-  );
-  const [initialized, { toggle, isRunning }, dragEvents] =
-    useLayoutedElements();
+      [setEdges],
+    );
 
- const handleArrange = (arrangeBy) => {
+  const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
+
+
+  const radius = 500;
+  const centerX = width / 2;
+  const centerY = height / 2;
+
+  const handleArrange = (arrangeBy) => {
   const sortedNodes = [...nodes].sort((a, b) => {
     const aVal = a.data[arrangeBy]?.toLowerCase() || '';
     const bVal = b.data[arrangeBy]?.toLowerCase() || '';
     return aVal.localeCompare(bVal);
   });
-
-  const radius = 500;
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
 
   const angleStep = (2 * Math.PI) / sortedNodes.length;
 
@@ -212,7 +323,7 @@ const styledEdges = edges.map(edge => ({
   });
 
   setNodes(newNodes);
-};
+  };
 
 
   return (
@@ -240,9 +351,24 @@ const styledEdges = edges.map(edge => ({
               <button onClick={toggle} style={{ marginRight: '5px' }}>
                 {isRunning() ? 'Stop' : 'Start'} force simulation
               </button>
+
+              <label style={{ display: 'flex', alignItems: 'center', marginLeft: '10px', marginTop: "20px" }}>
+              <span>Order of interoperability: {interoperabilityOrder}</span>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={interoperabilityOrder === 2}
+                  onChange={() =>
+                    setInteroperabilityOrder((prev) => (prev === 1 ? 2 : 1))
+                  }
+                />
+                <span className="slider" />
+              </label>
+            </label>
             </>
           )}
         </Panel>
+        <TypeFilterPanel types={allTypes} activeTypes={activeTypes} toggleType={toggleType} />
         <MiniMap />
         <Controls />
         <ArrangeButton arrangeBy="label" onClick={handleArrange} position="top-right" />
