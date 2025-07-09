@@ -28,7 +28,7 @@ import { initialElements } from './initialElements.js';
 import CustomNode from './CustomNode';
 import UserNode  from './user-node.jsx';
 import ArrangeButton from './ArrangeButton';
-import { arrangeNodes, createUserNode } from './utils';
+import { arrangeNodes } from './utils';
 
 import '@xyflow/react/dist/style.css';
 import TypeFilterPanel from './TypeFilterPanel.jsx';
@@ -150,6 +150,7 @@ const LayoutFlow = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [interoperabilityOrder, setInteroperabilityOrder] = useState(1);
+  const { fitView } = useReactFlow();
 
   const allTypes = useMemo(() => {
     const types = Array.from(new Set(nodes.map(n => n.data.type)));
@@ -301,6 +302,7 @@ const LayoutFlow = () => {
   const handleArrange = (arrangeBy) => {
     const newNodes = arrangeNodes(nodes, width, height, arrangeBy);
     setNodes(newNodes);
+    fitView();
   };
 
   const handleAddNode = () => {

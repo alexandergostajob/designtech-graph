@@ -122,6 +122,7 @@ export function arrangeNodes(nodes, width, height, arrangeBy = 'label', radius =
     };
   });
 }
+
 export function createUserNode(label = 'min nya nod') {
   return {
     id: `user-${+new Date()}`,
