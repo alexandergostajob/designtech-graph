@@ -26,15 +26,18 @@ import FloatingEdge from './FloatingEdge';
 import FloatingConnectionLine from './FloatingConnectionLine';
 import { initialElements } from './initialElements.js';
 import CustomNode from './CustomNode';
+import UserNode  from './user-node.jsx';
 import ArrangeButton from './ArrangeButton';
-import { arrangeNodes } from './arrangeNodes';
-
+import { arrangeNodes, createUserNode } from './utils';
 
 import '@xyflow/react/dist/style.css';
 import TypeFilterPanel from './TypeFilterPanel.jsx';
  
 const width = window.innerWidth;
 const height = window.innerHeight;
+const getNodeId = () => `node_${+new Date()}`;
+const edgeTypes = { floating: FloatingEdge };
+const { nodes: initialNodes, edges: initialEdges } = initialElements();
 
 const useLayoutedElements = () => {
   const { getNodes, setNodes, getEdges, fitView } = useReactFlow();
@@ -141,10 +144,6 @@ const useLayoutedElements = () => {
     return [true, { toggle, isRunning }, dragEvents];
   }, [initialized, dragEvents, getNodes, getEdges, setNodes, fitView]);
 };
-
-const edgeTypes = { floating: FloatingEdge };
-
-const { nodes: initialNodes, edges: initialEdges } = initialElements();
 
 const LayoutFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -304,12 +303,22 @@ const LayoutFlow = () => {
     setNodes(newNodes);
   };
 
+  const handleAddNode = () => {
+    const newNode = {
+      id: getNodeId(),
+      type: 'user',
+      data: { label: 'right-click to name me', editable: true, type:"user" },
+      position: { x: 50, y: 50 },
+    };
+    setNodes(nds => [...nds, newNode]);
+  };
+
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow
         
         edgeTypes={edgeTypes}
-        nodeTypes={{custom: CustomNode}}
+        nodeTypes={{custom: CustomNode, user:UserNode}}
         onPaneClick={() => setSelectedNodeId(null)}
         nodes={styledNodes}
         edges={styledEdges}
@@ -329,6 +338,7 @@ const LayoutFlow = () => {
               <button onClick={toggle} style={{ marginRight: '5px' }}>
                 {isRunning() ? 'Stop' : 'Start'} force simulation
               </button>
+              <button onClick={handleAddNode}>Add node</button>
 
               <label style={{ display: 'flex', alignItems: 'center', marginLeft: '10px', marginTop: "20px" }}>
               <span>Order of interoperability: {interoperabilityOrder}</span>

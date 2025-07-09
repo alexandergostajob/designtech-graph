@@ -322,10 +322,10 @@
         "Website":"http:\/\/www.klimatportal.com\/"
     },
     {
-        "Name":"Ladybug & Honeybee",
+        "Name":"Ladybug tools",
         "Type":"Energi- och klimat",
         "Interoperability":"Grasshopper",
-        "Description":"En uppsättning verktyg i Grasshopper för klimat-, ljus- och energisimulering.",
+        "Description":"En uppsättning verktyg i Grasshopper för klimat-, ljus- och energisimulering, bland annat Ladybug och Honeybee",
         "Website":"https:\/\/www.ladybug.tools\/"
     },
     {
@@ -628,5 +628,54 @@
         "Interoperability":"Grasshopper",
         "Description":"En multivariabel evolutionär optimeringsmotor i Grasshopper som möjliggör analys, urval och visualisering av designalternativ baserat på flera parametrar och mål.",
         "Website":"https:\/\/www.wallacei.com\/"
+    },
+    {
+        "Name":"Midjourney",
+        "Type":"AI & ML",
+        "Interoperability":"Python",
+        "Description":"AI-baserat bildgenereringsverktyg som tolkar textprompter till visuellt innehåll.",
+        "Website":"https:\/\/www.midjourney.com\/"
+    },
+    {
+        "Name":"Stable diffusion",
+        "Type":"AI & ML",
+        "Interoperability":"Python",
+        "Description":"Öppen AI-modell för bildgenerering med stöd för lokal körning och API-integration.",
+        "Website":"https:\/\/stability.ai\/"
+    },
+    {
+        "Name":"Adobe Photoshop",
+        "Type":"Visualisering",
+        "Interoperability":"Adobe Illustrator",
+        "Description":"Standardverktyg för bildredigering och digital visualisering i arkitektur och design.",
+        "Website":"https:\/\/www.adobe.com\/products\/photoshop.html"
+    },
+    {
+        "Name":"Adobe Illustrator",
+        "Type":"Visualisering",
+        "Interoperability":"Adobe Photoshop",
+        "Description":"Vektorbaserat designverktyg som används för scheman, diagram och grafiska gränssnitt.",
+        "Website":"https:\/\/www.adobe.com\/products\/illustrator.html"
+    },
+    {
+        "Name":"Finch3D",
+        "Type":"Generativ plattform",
+        "Interoperability":"Revit, Rhino",
+        "Description":"Generativ plattform för planutformning och optimering i tidiga skeden.",
+        "Website":"https:\/\/www.finch3d.com\/"
+    },
+    {
+        "Name":"OpenStudio",
+        "Type":"Energi- och klimat",
+        "Interoperability":"SketchUp, Ladybug tools",
+        "Description":"Open source-verktyg för energisimulering och byggnadsanalys, baserat på EnergyPlus.",
+        "Website":"https:\/\/www.openstudio.net\/"
+    },
+    {
+        "Name":"Cesium",
+        "Type":"Visualisering",
+        "Interoperability":"QGIS, Unity, Unreal Engine, GitHub, Grasshopper",
+        "Description":"Open platform for 3D geospatial visualization and streaming of large-scale spatial datasets.",
+        "Website":"https:\/\/cesium.com\/"
     }
 ]

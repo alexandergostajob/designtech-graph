@@ -1,5 +1,5 @@
 import rawData from './data.json';
-import { arrangeNodes } from './arrangeNodes';
+import { arrangeNodes } from './utils';
 
 const colorPalette = [
   '#7AC8A4', // grön

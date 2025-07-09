@@ -6,7 +6,7 @@ This app is built on a template with a minimal setup to get React working in Vit
 
 For changes:
 
-bash
+in bash
 git add .
 git commit -m "Update X"
 git push
