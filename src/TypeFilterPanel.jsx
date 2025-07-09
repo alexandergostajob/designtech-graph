@@ -13,11 +13,12 @@ const TypeFilterPanel = ({ types, activeTypes, toggleType }) => {
               backgroundColor: color,
               opacity: activeTypes.has(type) ? 1 : 0.2,
               border: 'none',
-              padding: '4px 8px',
+              padding: '4px 4px',
               borderRadius: 4,
               cursor: 'pointer',
               color: '#000',
               textAlign: 'left',
+              fontSize: "small"
             }}
           >
             {type}

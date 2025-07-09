@@ -27,6 +27,8 @@ import FloatingConnectionLine from './FloatingConnectionLine';
 import { initialElements } from './initialElements.js';
 import CustomNode from './CustomNode';
 import ArrangeButton from './ArrangeButton';
+import { arrangeNodes } from './arrangeNodes';
+
 
 import '@xyflow/react/dist/style.css';
 import TypeFilterPanel from './TypeFilterPanel.jsx';
@@ -297,34 +299,10 @@ const LayoutFlow = () => {
 
   const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
 
-
-  const radius = 500;
-  const centerX = width / 2;
-  const centerY = height / 2;
-
   const handleArrange = (arrangeBy) => {
-  const sortedNodes = [...nodes].sort((a, b) => {
-    const aVal = a.data[arrangeBy]?.toLowerCase() || '';
-    const bVal = b.data[arrangeBy]?.toLowerCase() || '';
-    return aVal.localeCompare(bVal);
-  });
-
-  const angleStep = (2 * Math.PI) / sortedNodes.length;
-
-  const newNodes = sortedNodes.map((node, i) => {
-    const angle = i * angleStep;
-    return {
-      ...node,
-      position: {
-        x: centerX + radius * Math.cos(angle),
-        y: centerY + radius * Math.sin(angle),
-      },
-    };
-  });
-
-  setNodes(newNodes);
+    const newNodes = arrangeNodes(nodes, width, height, arrangeBy);
+    setNodes(newNodes);
   };
-
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>

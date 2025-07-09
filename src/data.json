@@ -1,14 +1,14 @@
 [
     {
         "Name":".NET",
-        "Type":"Programspråk",
-        "Interoperability":"Grasshopper, Rhino3D",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":"Grasshopper, Rhino3D, Visual Studio Code, Azure",
         "Description":"Ett ramverk och programmeringsspråk från Microsoft för att bygga applikationer i flera miljöer, ofta använt inom tekniska integrationer.",
         "Website":"https:\/\/dotnet.microsoft.com\/en-us\/"
     },
     {
         "Name":"3DS Max",
-        "Type":"CAD",
+        "Type":"Modellering",
         "Interoperability":"AutoCAD, Revit, Unity3D, Unreal Engine, Vray",
         "Description":"Ett 3D-modellerings- och visualiseringsverktyg, främst för arkitektur, spel och animation.",
         "Website":"https:\/\/www.autodesk.com\/se\/products\/3ds-max\/overview"
@@ -29,51 +29,65 @@
     },
     {
         "Name":"AutoCAD",
-        "Type":"CAD",
+        "Type":"Modellering",
         "Interoperability":"3DS Max, ArcGIS, CityEngine, Civil3D, FME, InfraWorks, OpenCities Planner, QGIS, Revit, SketchUp, Speckle",
         "Description":"Ett CAD-program för teknisk ritning och konstruktion, vanligt inom arkitektur och ingenjörsarbete.",
         "Website":"https:\/\/www.autodesk.com\/products\/autocad\/overview"
     },
     {
+        "Name":"Autodesk Construction Cloud",
+        "Type":"Datadelning & moln",
+        "Interoperability":"Power BI, Revit, AutoCAD, Civil 3D, Navisworks, 3ds Max",
+        "Description":"En molnbaserad plattform som samlar hela byggprocessen – från design till produktion – i en gemensam miljö. Den innehåller moduler som Docs, Build, BIM Collaborate och Takeoff",
+        "Website":"https:\/\/construction.autodesk.eu\/"
+    },
+    {
         "Name":"Autodesk Forma",
-        "Type":"SaaS",
+        "Type":"Generativ plattform",
         "Interoperability":"One Click LCA, Revit, Rhino3D",
         "Description":"Molnbaserad plattform för att designa hållbara byggnader och stadsplanering med hjälp av dataanalys.",
         "Website":"https:\/\/www.autodesk.com\/products\/forma\/overview"
     },
     {
         "Name":"Azure",
-        "Type":"Datadelning",
-        "Interoperability":"Rhino.Compute",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":"Rhino.Compute, Visual Studio Code, .NET",
         "Description":"Microsofts molnplattform för lagring, beräkning och delning av data och tjänster.",
         "Website":"https:\/\/azure.microsoft.com\/"
     },
     {
         "Name":"Blender",
-        "Type":"CAD",
+        "Type":"Modellering",
         "Interoperability":"Python, Speckle, Topologic, Unity3D, Unreal Engine, Vray",
         "Description":"Ett öppet 3D-modelleringsprogram för animation, visualisering och design.",
         "Website":"https:\/\/www.blender.org\/"
     },
     {
+        "Name":"BM",
+        "Type":"LCA",
+        "Interoperability":"Grasshopper",
+        "Description":"Byggsektorns Miljöberäkningsverktyg (BM) från IVL är ett verktyg för att beräkna och redovisa klimatpåverkan från byggnader enligt Boverkets krav.",
+        "Website":"https:\/\/www.ivl.se\/bm"
+    },
+    {
         "Name":"C#",
-        "Type":"Programspråk",
-        "Interoperability":"GIThub, GIThub, Grasshopper, Python, Revit, Rhino3D, Speckle, Unity3D, Unreal Engine",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":"GIThub, GIThub, Grasshopper, Python, Revit, Rhino3D, Speckle, Unity3D, Unreal Engine, Visual Studio Code, .NET, Azure",
         "Description":"Ett objektorienterat programmeringsspråk från Microsoft, ofta använt i bygg- och visualiseringsverktyg.",
         "Website":"https:\/\/learn.microsoft.com\/en-us\/dotnet\/csharp\/"
     },
     {
         "Name":"Cetopo",
-        "Type":"SaaS",
+        "Type":"Generativ plattform",
         "Interoperability":"Archicad, Grasshopper, Revit, Rhino3D, Speckle",
         "Description":"Ett lättanvänt verktyg för att skapa topografiska 3D-modeller av städer.",
         "Website":"https:\/\/www.cetopo.fi\/"
     },
     {
         "Name":"ChatGPT",
-        "Type":"Maskininlärning",
-        "Interoperability":"Grasshopper",
-        "Description":"En AI-modell från OpenAI som används för textgenerering och assistans i designprocesser.",
+        "Type":"AI & ML",
+        "Interoperability":"Excel, Blender, Visual Studio Code, Python",
+        "Description":"AI-driven språkmodell som kan förstå och generera text på naturligt språk. Den utvecklas av OpenAI och bygger på en teknik som kallas generativ artificiell intelligens, specifikt modellen GPT (Generative Pre-trained Transformer)",
         "Website":"https:\/\/chat.openai.com\/"
     },
     {
@@ -84,6 +98,13 @@
         "Website":"https:\/\/www.esri.com\/en-us\/arcgis\/products\/arcgis-cityengine\/overview"
     },
     {
+        "Name":"CityGML",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Standard för 3D-stadsdata (utökning av GML), beskriver byggnader, terräng m.m.",
+        "Website":null
+    },
+    {
         "Name":"Civil3D",
         "Type":"BIM",
         "Interoperability":"AutoCAD, Revit, Speckle",
@@ -91,15 +112,29 @@
         "Website":"https:\/\/www.autodesk.com\/products\/civil-3d\/overview"
     },
     {
+        "Name":"Claude",
+        "Type":"AI & ML",
+        "Interoperability":"Visual Studio Code, .NET, Azure, Python",
+        "Description":"AI-driven språkmodell utvecklad av Anthropic, tränad för att ge hjälpsamma, ofarliga och ärliga svar. Används främst i chattbaserade gränssnitt för textbearbetning och analys.",
+        "Website":"https:\/\/claude.ai\/"
+    },
+    {
         "Name":"Conveyor",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Revit, Rhino3D",
         "Description":"Proving Ground",
         "Website":"https:\/\/www.provingground.io\/conveyor"
     },
     {
+        "Name":"CSV",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Enkelt textformat för tabulär data – ofta mellanled i automatisering",
+        "Website":null
+    },
+    {
         "Name":"D2P Components",
-        "Type":"Datadelning",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Grasshopper, Rhino3D",
         "Description":"D2P Components streamline parametric modeling in Grasshopper, helping you manage complex data trees, reduce recomputations, and maintain a structured, scalable workflow from concept to fabrication.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/d2p-components"
@@ -113,14 +148,21 @@
     },
     {
         "Name":"DODO",
-        "Type":"Maskininlärning",
+        "Type":"AI & ML",
         "Interoperability":"Grasshopper",
         "Description":"Ett maskininlärningsverktyg kopplat till Grasshopper för generativ design.",
         "Website":"https:\/\/www.dodoBIM.com\/"
     },
     {
+        "Name":"DWG\/DXF",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Autodesk-format för ritningar och modeller (DWG är binärt, DXF är textbaserat)",
+        "Website":null
+    },
+    {
         "Name":"Dynamo",
-        "Type":"Programspråk",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Grasshopper, Revit, Rhino.Inside.Revit, Speckle, Topologic",
         "Description":"Ett visuellt programmeringsspråk för automatisering och logik i Revit och andra BIM-miljöer.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/dodo"
@@ -134,119 +176,168 @@
     },
     {
         "Name":"ETABS",
-        "Type":"Simulering",
+        "Type":"Strukturanalys",
         "Interoperability":"Revit, Tekla Structures",
         "Description":"Ett strukturanalysverktyg för byggnader, ofta använt i kombination med BIM-program som Revit.",
         "Website":"https:\/\/www.csiamerica.com\/products\/etabs"
     },
     {
         "Name":"Excel",
-        "Type":"Datadelning",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Archicad, Grasshopper, One Click LCA, Revit, Rhino3D",
         "Description":"Ett kalkylprogram som ofta används för att strukturera och dela data i byggprojekt.",
         "Website":"https:\/\/www.microsoft.com\/en-us\/microsoft-365\/excel"
     },
     {
         "Name":"FME",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"ArcGIS, AutoCAD, CityEngine, Grasshopper, InfraWorks, OpenCities Planner, Python, QGIS, Revit, Rhino3D, SketchUp, Speckle, Tekla Structures",
         "Description":"En dataintegrationsplattform som hanterar data från GIS, CAD och andra källor för stadsplanering.",
         "Website":"https:\/\/www.safe.com\/fme\/"
     },
     {
+        "Name":"gbXML",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Format för att överföra byggnadsdata till energianalysverktyg",
+        "Website":null
+    },
+    {
+        "Name":"GeoJSON",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Lättläst, webbvänligt format för kartdata – populärt i visualisering och analys",
+        "Website":null
+    },
+    {
         "Name":"GhPython",
-        "Type":"Programspråk",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Grasshopper, Python",
         "Description":"En komponent i Grasshopper som tillåter programmering med Python i visuell design.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/ghpython"
     },
     {
         "Name":"GIThub",
-        "Type":"Datadelning",
-        "Interoperability":"C#, Python, Rhino.Compute",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":"C#, Python, Rhino.Compute, .NET, Visual Studio Code, Azure, Grasshopper",
         "Description":"En plattform för versionshantering och koddelning, ofta använd i samarbetsprojekt.",
         "Website":"https:\/\/github.com\/"
     },
     {
+        "Name":"GLTF",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Kompakt 3D-format för realtidsvisning i webbläsare",
+        "Website":null
+    },
+    {
         "Name":"GML",
-        "Type":"Programspråk",
+        "Type":"Filformat",
         "Interoperability":"Topologic, Topologicpy",
         "Description":"Ett XML-baserat språk för att beskriva geografisk information och relationer i modeller.",
         "Website":"https:\/\/www.ogc.org\/standards\/gml\/"
     },
     {
+        "Name":"Google Gemini",
+        "Type":"AI & ML",
+        "Interoperability":"Visual Studio Code, .NET, Azure, Python",
+        "Description":"Googles egen generativa AI-modell (tidigare Bard), integrerad i Googles ekosystem. Används för att generera text, analysera dokument och stödja arbetsflöden inom Google-produkter.",
+        "Website":"\thttps:\/\/gemini.google.com\/"
+    },
+    {
         "Name":"Grasshopper",
-        "Type":"Programspråk",
-        "Interoperability":".NET, Archicad, C#, Cetopo, ChatGPT, D2P Components, DODO, Dynamo, Excel, FME, GhPython, Hops, Human UI, Hypar, Kangaroo, Karamba, Ladybug & Honeybee, Link_Dashboards, One Click LCA, PUG, Python, Rhino3D, RhinoCircular, ShapeDiver, SimScale, Sofistik, Speckle, Synapse, Tesnorflow.NET, TopoX, Topologic, UI+, Wallecei",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":".NET, Archicad, C#, Cetopo, ChatGPT, D2P Components, DODO, Dynamo, Excel, FME, GhPython, Hops, Human UI, Hypar, Kangaroo, Karamba, Ladybug & Honeybee, Link_Dashboards, One Click LCA, PUG, Python, Rhino3D, RhinoCircular, ShapeDiver, SimScale, Sofistik, Speckle, Synapse, Tesnorflow.NET, TopoX, Topologic, UI+, Wallecei, GIThub",
         "Description":"Ett visuellt programmeringsverktyg för parametrisk design i Rhino3D.",
         "Website":"https:\/\/www.grasshopper3d.com\/"
     },
     {
         "Name":"Hektar",
-        "Type":"SaaS",
+        "Type":"Generativ plattform",
         "Interoperability":"Rhino3D",
         "Description":"Ett SaaS-verktyg med koppling till Rhino3D, för till stadsplanering eller geodatahantering.",
         "Website":"https:\/\/app.hektar.ai\/"
     },
     {
         "Name":"Hops",
-        "Type":"Datadelning",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Grasshopper",
         "Description":"En komponent i Grasshopper som möjliggör körning av externa Python-funktioner.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/hops"
     },
     {
         "Name":"Human UI",
-        "Type":"Gränssnitt",
+        "Type":"UI & gränssnitt",
         "Interoperability":"Grasshopper",
         "Description":"Ett verktyg för att skapa anpassade gränssnitt inom Grasshopper.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/human-ui"
     },
     {
         "Name":"Hypar",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Grasshopper, Python",
         "Description":"En plattform för datadriven design där kod och logik delas och körs i molnet.",
         "Website":"https:\/\/hypar.io\/"
     },
     {
+        "Name":"IFC",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Öppen standard för informationsutbyte i byggbranschen, främst kopplat till BIM",
+        "Website":null
+    },
+    {
         "Name":"InfraWorks",
-        "Type":"CAD",
+        "Type":"BIM",
         "Interoperability":"ArcGIS, AutoCAD, FME, Revit",
         "Description":"Används för infrastrukturdesign och modellering av städer och byggnadsverk.",
         "Website":"https:\/\/www.autodesk.com\/products\/infraworks\/overview"
     },
     {
+        "Name":"JSON",
+        "Type":"Filformat",
+        "Interoperability":null,
+        "Description":"Allmänt dataformat, vanligt vid API:er och plugin-kommunikation",
+        "Website":null
+    },
+    {
         "Name":"Kangaroo",
-        "Type":"Simulering",
+        "Type":"Strukturanalys",
         "Interoperability":"Grasshopper",
         "Description":"En fysikmotor för Grasshopper som möjliggör formoptimering och responsiv design.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/kangaroo-physics"
     },
     {
         "Name":"Karamba",
-        "Type":"Simulering",
+        "Type":"Strukturanalys",
         "Interoperability":"Grasshopper, Rhino3D",
         "Description":"Ett strukturanalysverktyg integrerat i Grasshopper, för tidig utvärdering av bärande system.",
         "Website":"https:\/\/karamba3d.com\/"
     },
     {
+        "Name":"Klimatportal",
+        "Type":"LCA",
+        "Interoperability":"IFC, Archicad, Revit, Tekla",
+        "Description":"Svensk plattform för klimatberäkningar i bygg- och infrastrukturprojekt",
+        "Website":"http:\/\/www.klimatportal.com\/"
+    },
+    {
         "Name":"Ladybug & Honeybee",
-        "Type":"Simulering",
+        "Type":"Energi- och klimat",
         "Interoperability":"Grasshopper",
         "Description":"En uppsättning verktyg i Grasshopper för klimat-, ljus- och energisimulering.",
         "Website":"https:\/\/www.ladybug.tools\/"
     },
     {
         "Name":"Link_Dashboards",
-        "Type":"Gränssnitt",
+        "Type":"UI & gränssnitt",
         "Interoperability":"Grasshopper",
         "Description":"Ett verktyg för att koppla visualiseringar till parametrisk design i Grasshopper.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/linkdashboards"
     },
     {
         "Name":"Nablaflow",
-        "Type":"Simulering",
+        "Type":"Energi- och klimat",
         "Interoperability":"Spacio",
         "Description":"Specialiserad på fluiddynamik och luftflödesanalyser för stadsplanering.",
         "Website":"https:\/\/nablaflow.com\/"
@@ -259,9 +350,16 @@
         "Website":"https:\/\/www.autodesk.com\/se\/products\/navisworks\/overview"
     },
     {
+        "Name":"OBJ\/FBX",
+        "Type":"Filformat",
+        "Interoperability":"Archicad, Revit, SketchUp, Blender, AutoCAD, FME, Grasshopper, 3DS Max",
+        "Description":"Format för 3D-geometri i visualisering\/rendering (spel, AR\/VR)",
+        "Website":null
+    },
+    {
         "Name":"One Click LCA",
-        "Type":"Simulering",
-        "Interoperability":"Archicad, Autodesk Forma, Excel, Grasshopper, Navisworks, Revit, Tekla Structures",
+        "Type":"LCA",
+        "Interoperability":"Archicad, Autodesk Forma, Excel, Grasshopper, Navisworks, Revit, Tekla Structures, gbXML, Tekla, IFC, Civil 3D, Navisworks, Autodesk Construction Cloud",
         "Description":"En plattform för livscykelanalyser (LCA) kopplad till BIM-modeller.",
         "Website":"https:\/\/oneclicklca.com\/"
     },
@@ -273,22 +371,43 @@
         "Website":"https:\/\/www.bentley.com\/software\/opencities-planner\/"
     },
     {
+        "Name":"PBL",
+        "Type":"Filformat",
+        "Interoperability":"Archicad",
+        "Description":"Archicads filformat",
+        "Website":null
+    },
+    {
+        "Name":"Plant",
+        "Type":"LCA",
+        "Interoperability":"Power BI, Revit, Archicad, Tekla",
+        "Description":"3D-BIM-verktyg för klimatberäkningar i byggprojekt – kvalitetssäkrade livscykelanalyser och realtidsdata direkt från modeller",
+        "Website":"https:\/\/www.plant.se\/"
+    },
+    {
         "Name":"Power BI",
-        "Type":"Visualisering",
+        "Type":"Datadelning & moln",
         "Interoperability":"Semantic, Speckle",
         "Description":"Ett verktyg från Microsoft för interaktiv dataanalys och visualisering.",
         "Website":"https:\/\/powerbi.microsoft.com\/"
     },
     {
+        "Name":"Prodikt",
+        "Type":"LCA",
+        "Interoperability":"IFC, Archicad, Revit, Tekla",
+        "Description":"Webbaserad plattform för livscykelanalys och klimatberäkningar, med fokus på material- och produktdata.",
+        "Website":"https:\/\/www.prodikt.com\/"
+    },
+    {
         "Name":"PUG",
-        "Type":"Maskininlärning",
+        "Type":"AI & ML",
         "Interoperability":"Grasshopper",
         "Description":"Ett AI-verktyg integrerat med Grasshopper för generativ design.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/pug"
     },
     {
         "Name":"Python",
-        "Type":"Programspråk",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Blender, C#, FME, GIThub, GhPython, GIThub, Grasshopper, Hypar, Python, QGIS, Revit, Rhino3D, SimScale, Speckle, Topologicpy",
         "Description":"Ett populärt skriptspråk som används brett inom datahantering, design och AI.",
         "Website":"https:\/\/www.python.org\/"
@@ -309,70 +428,77 @@
     },
     {
         "Name":"Rhino.Compute",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Azure, Rhino3D",
         "Description":"Ett gränssnitt för att köra Rhino- och Grasshopperkomponenter i molnet.",
         "Website":"https:\/\/www.rhino3d.com\/compute\/"
     },
     {
         "Name":"Rhino.Inside.Revit",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Dynamo, Revit, Rhino3D",
         "Description":"Ett verktyg som möjliggör att köra Rhino och Grasshopper direkt i Revit.",
         "Website":"https:\/\/www.rhino3d.com\/inside\/revit\/1.0\/"
     },
     {
         "Name":"Rhino3D",
-        "Type":"CAD",
+        "Type":"Modellering",
         "Interoperability":".NET, Autodesk Forma, C#, Cetopo, Conveyor, D2P Components, Enscape, Excel, FME, Grasshopper, Hektar, Karamba, Python, Rhino.Inside.Revit, Rhino.Compute, RhinoCircular, Semantic, ShapeDiver, Sofistik, Spacio, Speckle, Twinmotion, Unity3D, Unreal Engine, Vray",
         "Description":"3D-modellering och algoritmbaserad design som ofta används för arkitektur och stadsplanering.",
         "Website":"https:\/\/www.rhino3d.com\/"
     },
     {
         "Name":"RhinoCircular",
-        "Type":"Datadelning",
+        "Type":"LCA",
         "Interoperability":"Grasshopper, Rhino3D",
         "Description":"En koppling till Rhino3D och Grasshopper för cirkulär design och dataflöden.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/rhinocircular"
     },
     {
         "Name":"Robot",
-        "Type":"Simulering",
+        "Type":"Strukturanalys",
         "Interoperability":"Revit",
         "Description":"Ett analysverktyg för bärande konstruktioner som integreras med Revit.",
         "Website":"https:\/\/www.autodesk.com\/products\/robot-structural-analysis\/overview"
     },
     {
+        "Name":"RVT\/RFA",
+        "Type":"Filformat",
+        "Interoperability":"Revit",
+        "Description":"Autodesk Revit-filformat (projekt\/familjer)",
+        "Website":null
+    },
+    {
         "Name":"Semantic",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Power BI, Rhino3D",
         "Description":"Ett gränssnitt för att strukturera och föra över data mellan modeller och analysverktyg.",
         "Website":"https:\/\/apps.provingground.io\/semantic\/"
     },
     {
         "Name":"ShapeDiver",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"Grasshopper, Rhino3D",
         "Description":"En plattform för att publicera och dela Grasshoppermodeller online.",
         "Website":"https:\/\/www.shapediver.com\/"
     },
     {
         "Name":"SimScale",
-        "Type":"Simulering",
+        "Type":"Energi- och klimat",
         "Interoperability":"Grasshopper, Python",
         "Description":"En molnbaserad vindsimuleringsplattform för byggnadsteknik och stadsplanering.",
         "Website":"https:\/\/www.simscale.com\/"
     },
     {
         "Name":"SketchUp",
-        "Type":"CAD",
+        "Type":"Modellering",
         "Interoperability":"AutoCAD, Enscape, FME, OpenCities Planner, Revit, Twinmotion, Unreal Engine, Vray",
         "Description":"En plattform för att visa och dela 3D-modeller online.",
         "Website":"https:\/\/www.sketchup.com\/"
     },
     {
         "Name":"Sofistik",
-        "Type":"Simulering",
+        "Type":"Strukturanalys",
         "Interoperability":"Grasshopper, Rhino3D",
         "Description":"Ett analysverktyg för bärande system, integrerat med Grasshopper och Rhino3D.",
         "Website":"https:\/\/www.sofistik.com\/"
@@ -386,28 +512,28 @@
     },
     {
         "Name":"Spacio",
-        "Type":"SaaS",
+        "Type":"Generativ plattform",
         "Interoperability":"Nablaflow, Rhino3D",
         "Description":"En AI-driven plattform för automatiserad stadsplanering och designanalys.",
         "Website":"https:\/\/spacio.ai\/"
     },
     {
         "Name":"Speckle",
-        "Type":"Datadelning",
+        "Type":"Datadelning & moln",
         "Interoperability":"ArcGIS, AutoCAD, Blender, C#, Cetopo, Civil3D, Dynamo, FME, Grasshopper, Power BI, Python, QGIS, Rhino3D, Tekla Structures, TopSolid, Topologicpy, Unity3D, Unreal Engine",
         "Description":"Ett system för datadelning mellan olika AEC-verktyg och plattformar.",
         "Website":"https:\/\/speckle.systems\/"
     },
     {
         "Name":"Streamlit",
-        "Type":"Datadelning",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"Topologic, Topologicpy, Python",
         "Description":"Ett ramverk för att snabbt skapa interaktiva webbapplikationer med Python.",
         "Website":"https:\/\/streamlit.io\/"
     },
     {
         "Name":"Synapse",
-        "Type":"Gränssnitt",
+        "Type":"UI & gränssnitt",
         "Interoperability":"Grasshopper",
         "Description":"Ett UI-verktyg för att skapa interaktiva dashboards i Grasshopper.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/synapse"
@@ -421,7 +547,7 @@
     },
     {
         "Name":"Tesnorflow.NET",
-        "Type":"Programspråk",
+        "Type":"AI & ML",
         "Interoperability":"Grasshopper",
         "Description":"En .NET-komponent för att använda TensorFlow inom parametrisk design.",
         "Website":"https:\/\/github.com\/SciSharp\/TensorFlow.NET"
@@ -435,7 +561,7 @@
     },
     {
         "Name":"Topologicpy",
-        "Type":"Programspråk",
+        "Type":"Utveckling, kod & språk",
         "Interoperability":"GML, Python, Speckle, Streamlit, Topologic",
         "Description":"Ett Python-bibliotek som integrerar med Topologic för analys och datahantering.",
         "Website":"https:\/\/topologicpy.readthedocs.io\/"
@@ -463,7 +589,7 @@
     },
     {
         "Name":"UI+",
-        "Type":"Gränssnitt",
+        "Type":"UI & gränssnitt",
         "Interoperability":"Grasshopper",
         "Description":"Ett verktyg för att skapa användargränssnitt direkt i Grasshopper.",
         "Website":"https:\/\/www.food4rhino.com\/en\/app\/ui"
@@ -483,6 +609,13 @@
         "Website":"https:\/\/www.unrealengine.com\/"
     },
     {
+        "Name":"Visual Studio Code",
+        "Type":"Utveckling, kod & språk",
+        "Interoperability":"Python, C#, .NET, ChatGPT",
+        "Description":"Gratis, öppen källkod-baserad kodeditor utvecklad av Microsoft. ",
+        "Website":"https:\/\/code.visualstudio.com\/"
+    },
+    {
         "Name":"Vray",
         "Type":"Visualisering",
         "Interoperability":"3DS Max, Blender, Revit, Rhino3D, SketchUp, Unity3D, Unreal Engine",
@@ -491,16 +624,9 @@
     },
     {
         "Name":"Wallecei",
-        "Type":"Programspråk",
+        "Type":"AI & ML",
         "Interoperability":"Grasshopper",
         "Description":"En multivariabel evolutionär optimeringsmotor i Grasshopper som möjliggör analys, urval och visualisering av designalternativ baserat på flera parametrar och mål.",
         "Website":"https:\/\/www.wallacei.com\/"
-    },
-    {
-        "Name":"Visual Studio Code",
-        "Type":"Kodeditor",
-        "Interoperability":"Python, C#, .NET",
-        "Description":"Gratis, öppen källkod-baserad kodeditor utvecklad av Microsoft. ",
-        "Website":"https:\/\/code.visualstudio.com\/"
     }
 ]
