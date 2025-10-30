@@ -1,5 +1,7 @@
 # DesignTech Usage Visualization
 
+View the application at: https://alexandergostajob.github.io/designtech-graph/
+
 ## Overview
 This application is an interactive visualization tool built to explore and analyze the usage and interoperability of design technology tools across different companies. It provides a dynamic graph-based interface where users can explore relationships between various design tools, their users, and how they interact within the industry.
 
@@ -77,8 +79,6 @@ npm run deploy
   - `data.json` - Application data
   - Other components and assets
 
-## Live Demo
-View the application at: https://alexandergostajob.github.io/designtech-graph/
 
 ## Making Changes
 To update the application:
