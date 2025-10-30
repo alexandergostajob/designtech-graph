@@ -93,4 +93,4 @@ npm run deploy
 Private repository - All rights reserved
 
 ## Author
-Alexander Gösta
+Alexander Gösta + Jonas Runberger
