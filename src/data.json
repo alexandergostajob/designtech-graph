@@ -880,83 +880,226 @@
         "Kommentar": null
     },
     {
-        "Name": "&Rundquist",
-        "Type": "Company",
-        "Designtechs": "Adobe Photoshop, ChatGPT, Grasshopper, Kangaroo, Ladybug tools, Stable diffusion"
-    },
-    {
-        "Name": "BAU",
-        "Type": "Company",
-        "Designtechs": "Adobe Photoshop, Adobe Illustrator, 3DS Max, Archicad, AutoCAD, Bluebeam, Bricscad, Claude, ChatGPT, Visual Studio Code, Google Gemini, Corona, D5 Render, Grasshopper, Enscape, Navisworks, Python, QGIS, Revit, Rhino3D, Solibri, Twinmotion"
-    },
-    {
-        "Name": "Blick Arkitektur",
-        "Type": "Company",
-        "Designtechs": "Grasshopper, Rhino3D, SketchUp, Archicad"
-    },
-    {
-        "Name": "Brunnberg & Forshed",
-        "Type": "Company",
-        "Designtechs": "3DS Max, Adobe Photoshop, Archicad, Autodesk Forma, D5 Render, Dalux, Enscape, Finch3D, Grasshopper, Python, QGIS, Revit, Solibri, Twinmotion, Vray"
-    },
-    {
-        "Name": "ElinderSten",
-        "Type": "Company",
-        "Designtechs": "Archicad, AutoCAD, Bluebeam, ChatGPT, Dalux, Navisworks, Adobe Illustrator, Adobe Photoshop, Power BI, Revit, Solibri, Twinmotion"
-    },
-    {
-        "Name": "Equator Stockholm",
-        "Type": "Company",
-        "Designtechs": "Revit, Rhino3D, Autodesk Forma, Grasshopper"
-    },
-    {
-        "Name": "FOJAB",
-        "Type": "Company",
-        "Designtechs": "Archicad, Grasshopper, Revit, Rhino3D, SketchUp, Python, C#, Unity3D, Autodesk Forma"
-    },
-    {
-        "Name": "Gatun Arkitekter",
-        "Type": "Company",
-        "Designtechs": "SketchUp, Revit"
-    },
-    {
-        "Name": "Parametric",
-        "Type": "Company",
-        "Designtechs": "Archicad, ChatGPT, Grasshopper, Revit, Rhino3D, C#, Python, QGIS, JavaScript"
-    },
-    {
-        "Name": "PSI",
-        "Type": "Company",
-        "Designtechs": "C#, Python, Revit, C++, ChatGPT"
-    },
-    {
-        "Name": "Ramboll",
-        "Type": "Company",
-        "Designtechs": "Rhino3D, Grasshopper, Revit, Tekla Structures"
-    },
-    {
-        "Name": "Reflex Arkitekter",
-        "Type": "Company",
-        "Designtechs": "Archicad, Autodesk Forma, Bluebeam, Cetopo, Dalux, Excel, Revit, Rhino3D, Grasshopper, SketchUp, Solibri, Twinmotion"
-    },
-    {
-        "Name": "Scharc Architects",
-        "Type": "Company",
-        "Designtechs": "Archicad, BuildingCloud, ChatGPT"
-    },
-    {
-        "Name": "Spacio AS",
-        "Type": "Company",
-        "Designtechs": "GIThub, Grasshopper, Rhino3D, Python, Archicad, JavaScript"
-    },
-    {
-        "Name": "Tyréns",
-        "Type": "Company",
-        "Designtechs": "Grasshopper, Karamba, Python, Revit, Rhino3D, Speckle, Tekla Structures"
-    },
-    {
-        "Name": "URBAN DESIGN",
-        "Type": "Company",
-        "Designtechs": "Grasshopper, Spacio, Twinmotion, DFMA, Rhino3D, Revit, AutoCAD"
-    }
+    "Name": "&Rundquist",
+    "Type": "Company",
+    "Designtechs": [
+      "&Rundquist",
+      "Adobe Photoshop",
+      "ChatGPT",
+      "Grasshopper",
+      "Kangaroo",
+      "Ladybug tools",
+      "Stable diffusion"
+    ]
+  },
+  {
+    "Name": "BAU",
+    "Type": "Company",
+    "Designtechs": [
+      "BAU",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "3DS Max",
+      "Archicad",
+      "AutoCAD",
+      "Bluebeam",
+      "Bricscad",
+      "Claude",
+      "ChatGPT",
+      "Visual Studio Code",
+      "Google Gemini",
+      "Corona",
+      "D5 Render",
+      "Grasshopper",
+      "Enscape",
+      "Navisworks",
+      "Python",
+      "QGIS",
+      "Revit",
+      "Rhino3D",
+      "Solibri",
+      "Twinmotion"
+    ]
+  },
+  {
+    "Name": "Blick Arkitektur",
+    "Type": "Company",
+    "Designtechs": [
+      "Blick Arkitektur",
+      "Grasshopper",
+      "Rhino3D",
+      "SketchUp",
+      "Archicad"
+    ]
+  },
+  {
+    "Name": "Brunnberg & Forshed",
+    "Type": "Company",
+    "Designtechs": [
+      "Brunnberg & Forshed",
+      "3DS Max",
+      "Adobe Photoshop",
+      "Archicad",
+      "Autodesk Forma",
+      "D5 Render",
+      "Dalux",
+      "Enscape",
+      "Finch3D",
+      "Grasshopper",
+      "Python",
+      "QGIS",
+      "Revit",
+      "Solibri",
+      "Twinmotion",
+      "Vray"
+    ]
+  },
+  {
+    "Name": "ElinderSten",
+    "Type": "Company",
+    "Designtechs": [
+      "ElinderSten",
+      "Archicad",
+      "AutoCAD",
+      "Bluebeam",
+      "ChatGPT",
+      "Dalux",
+      "Navisworks",
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Power BI",
+      "Revit",
+      "Solibri",
+      "Twinmotion"
+    ]
+  },
+  {
+    "Name": "Equator Stockholm",
+    "Type": "Company",
+    "Designtechs": [
+      "Equator Stockholm",
+      "Revit",
+      "Rhino3D",
+      "Autodesk Forma",
+      "Grasshopper"
+    ]
+  },
+  {
+    "Name": "FOJAB",
+    "Type": "Company",
+    "Designtechs": [
+      "FOJAB",
+      "Archicad",
+      "Grasshopper",
+      "Revit",
+      "Rhino3D",
+      "SketchUp",
+      "Python",
+      "C#",
+      "Unity3D",
+      "Autodesk Forma"
+    ]
+  },
+  {
+    "Name": "Gatun Arkitekter",
+    "Type": "Company",
+    "Designtechs": ["Gatun Arkitekter", "SketchUp", "Revit"]
+  },
+  {
+    "Name": "Parametric",
+    "Type": "Company",
+    "Designtechs": [
+      "Parametric",
+      "Archicad",
+      "ChatGPT",
+      "Grasshopper",
+      "Revit",
+      "Rhino3D",
+      "C#",
+      "Python",
+      "QGIS",
+      "JavaScript"
+    ]
+  },
+  {
+    "Name": "PSI",
+    "Type": "Company",
+    "Designtechs": ["PSI", "C#", "Python", "Revit", "C++", "ChatGPT"]
+  },
+  {
+    "Name": "Ramboll",
+    "Type": "Company",
+    "Designtechs": [
+      "Ramboll",
+      "Rhino3D",
+      "Grasshopper",
+      "Revit",
+      "Tekla Structures"
+    ]
+  },
+  {
+    "Name": "Reflex Arkitekter",
+    "Type": "Company",
+    "Designtechs": [
+      "Reflex Arkitekter",
+      "Archicad",
+      "Autodesk Forma",
+      "Bluebeam",
+      "Cetopo",
+      "Dalux",
+      "Excel",
+      "Revit",
+      "Rhino3D",
+      "Grasshopper",
+      "SketchUp",
+      "Solibri",
+      "Twinmotion"
+    ]
+  },
+  {
+    "Name": "Scharc Architects",
+    "Type": "Company",
+    "Designtechs": ["Scharc Architects", "Archicad", "BuildingCloud", "ChatGPT"]
+  },
+  {
+    "Name": "Spacio AS",
+    "Type": "Company",
+    "Designtechs": [
+      "Spacio AS",
+      "GIThub",
+      "Grasshopper",
+      "Rhino3D",
+      "Python",
+      "Archicad",
+      "JavaScript"
+    ]
+  },
+  {
+    "Name": "Tyréns",
+    "Type": "Company",
+    "Designtechs": [
+      "Tyréns",
+      "Grasshopper",
+      "Karamba",
+      "Python",
+      "Revit",
+      "Rhino3D",
+      "Speckle",
+      "Tekla Structures"
+    ]
+  },
+  {
+    "Name": "URBAN DESIGN",
+    "Type": "Company",
+    "Designtechs": [
+      "URBAN DESIGN",
+      "Grasshopper",
+      "Spacio",
+      "Twinmotion",
+      "DFMA",
+      "Rhino3D",
+      "Revit",
+      "AutoCAD"
+    ]
+  }
 ]
